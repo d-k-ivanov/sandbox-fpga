@@ -1,0 +1,7 @@
+# Ignore IDE-specific files and directories
+add_arrays/
+add_arrays_pipeline/
+offset/
+offset_pipeline/
+compile_commands.json
+dfx_runtime.txt
