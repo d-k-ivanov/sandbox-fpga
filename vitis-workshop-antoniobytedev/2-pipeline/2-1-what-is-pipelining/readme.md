@@ -31,15 +31,17 @@ void add_arrays_pipeline(int a[256], int b[256], int c[256]) {
 }
 ```
 
+> On xcu50-fsvh2104-2-e
+
 | Metric                     | **Without Pipelining** | **With `#pragma HLS PIPELINE`** |
 | -------------------------- | ---------------------- | ------------------------------- |
-| **Total Latency (cycles)** | 769                    | 259                             |
-| **LUTs Used**              | 102                    | 109                             |
-| **FFs Used**               | 54                     | 62                              |
+| **Total Latency (cycles)** | 513                    | 258                             |
+| **LUTs Used**              | 101                    | 109                             |
+| **FFs Used**               | 21                     | 20                              |
 | **DSPs Used**              | 0                      | 0                               |
 | **BRAMs Used**             | 0                      | 0                               |
 
-With this modification, the design will still take 3 cycles to produce the first result, but after that, it will produce one result per cycle. The total execution time will be about 259 cycles instead of 768. These synthesis results show us that pipeline is crucial when looking for throughput, as it allows us to make a significant increase in it while minimally increasing resources.
+With this modification, the design will still take 3 cycles to produce the first result, but after that, it will produce one result per cycle. The total execution time will be about 259 cycles instead of 768. These synthesis results show us that the pipeline is crucial when looking for throughput, as it allows us to make a significant increase in it while minimally increasing resources.
 
 ## Why Pipelining Matters
 FPGAs are capable of executing many operations in parallel, but unless you explicitly tell Vitis HLS to pipeline your loops, your code will behave like it does in software, executing operations one at a time. Pipelining helps you use the FPGA’s resources efficiently, keeping arithmetic units busy and increasing the processing speed of your design.
@@ -50,6 +52,6 @@ To pipeline a loop, place the following code before your loop:
 ```cpp
 #pragma HLS PIPELINE II=1
 ```
-Where II is s the number of clock cycles between the start of one iteration of the loop and the start of the next. A lower II means higher throughput. An II of 1 means a new iteration starts every clock cycle, which is the best possible scenario.
+Where II is the number of clock cycles between the start of one iteration of the loop and the start of the next. A lower II means higher throughput. An II of 1 means a new iteration starts every clock cycle, which is the best possible scenario.
 
  This tells Vitis to try to start a new loop iteration every clock cycle if there are no memory or dependency limitations. If your design has dependencies between loop iterations, you may not achieve II=1 automatically, but pipelining will still improve performance by overlapping iterations as much as possible.

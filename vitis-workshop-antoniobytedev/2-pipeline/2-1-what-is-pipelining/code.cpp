@@ -2,7 +2,7 @@
 
 void my_func(int a[N], int b[N], int c[N]) {
     for (int i = 0; i < N; i++) {
-        #pragma HLS PIPELINE off
+        #pragma HLS PIPELINE II=1
         c[i] = a[i] + b[i];
     }
 } 
