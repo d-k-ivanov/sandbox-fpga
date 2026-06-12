@@ -1,6 +1,7 @@
 # Ignore IDE-specific files and directories
 **/_ide/
 **/.cache/
+**/result/
 
 # Ignore build output directory
 /build
@@ -19,4 +20,6 @@
 
 .bin
 .pdi
+compile_commands.json
+dfx_runtime.txt
 .vitisWorkspace.json
