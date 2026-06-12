@@ -31,13 +31,13 @@ void add_arrays_pipeline(int a[256], int b[256], int c[256]) {
 }
 ```
 
-| Metric                        | **Without Pipelining** | **With `#pragma HLS PIPELINE`** |
-| ----------------------------- | ---------------------- | ------------------------------- |
- **Total Latency (cycles)**    |              769          |             259                   
-| **LUTs Used**                 |    102                    |              109                   |
-| **FFs Used**                  |      54                  |             62                    |
-| **DSPs Used**                 |      0                  |         0                        |
-| **BRAMs Used**                |       0                 |          0                       |
+| Metric                     | **Without Pipelining** | **With `#pragma HLS PIPELINE`** |
+| -------------------------- | ---------------------- | ------------------------------- |
+| **Total Latency (cycles)** | 769                    | 259                             |
+| **LUTs Used**              | 102                    | 109                             |
+| **FFs Used**               | 54                     | 62                              |
+| **DSPs Used**              | 0                      | 0                               |
+| **BRAMs Used**             | 0                      | 0                               |
 
 With this modification, the design will still take 3 cycles to produce the first result, but after that, it will produce one result per cycle. The total execution time will be about 259 cycles instead of 768. These synthesis results show us that pipeline is crucial when looking for throughput, as it allows us to make a significant increase in it while minimally increasing resources.
 

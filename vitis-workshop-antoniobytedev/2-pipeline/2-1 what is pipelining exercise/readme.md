@@ -5,11 +5,11 @@ Compare the following synthesis results:
 
 Total latency (in clock cycles),Initiation interval (II),Resource usage (LUTs, FFs, DSPs) and Maximum clock frequency. Use them to fill the following table.
 ## Finished table
-| Metric                        | **Without Pipelining** | **With `#pragma HLS PIPELINE`** |
-| ----------------------------- | ---------------------- | ------------------------------- |
- **Total Latency (cycles)**    |                        |                                
-| **LUTs Used**                 |                        |                                 |
-| **FFs Used**                  |                        |                                 |
-| **DSPs Used**                 |                        |                                 |
-| **BRAMs Used**                |                        |                                 |
+| Metric                     | **Without Pipelining** | **With `#pragma HLS PIPELINE`** |
+| -------------------------- | ---------------------- | ------------------------------- |
+| **Total Latency (cycles)** |                        |
+| **LUTs Used**              |                        |                                 |
+| **FFs Used**               |                        |                                 |
+| **DSPs Used**              |                        |                                 |
+| **BRAMs Used**             |                        |                                 |
 
