@@ -1,5 +1,5 @@
 {
-  "name": "2-1-pipelining",
+  "name": "2-1-pipelining-arrays",
   "type": "HLS",
   "configuration": {
     "componentType": "HLS",
