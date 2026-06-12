@@ -24,7 +24,7 @@ void accumulate_shifted(int a[256], int result[256]) {
 Each iteration requires three reads from the array a. Because BRAM has two read ports, it is not possible to achieve II=1.
 
 ## The Solution
-Despite not being able to achieve II=1, vitis can schedule data so that a new iteration can start every 2 or more cycles. Vitis will do this automatically when II=1 can't be achieved, but to get a specific number of iterations it's important to specify it, for example by writing II=2(new iteration every 2 cycles).
+Despite not being able to achieve II=1, Vitis can schedule data so that a new iteration can start every 2 or more cycles. Vitis will do this automatically when II=1 can't be achieved, but to get a specific number of iterations it's important to specify it, for example by writing II=2(new iteration every 2 cycles).
 
 ```cpp
 void accumulate_shifted(int a[256], int result[256]) {
@@ -43,13 +43,13 @@ void accumulate_shifted(int a[256], int result[256]) {
     }
 }
 ```
-| Metric                        | **Without Pipelining** | **With `#pragma HLS PIPELINE II=2`** |
-| ----------------------------- | ---------------------- | ------------------------------- |
- **Total Latency (cycles)**    |                1017       |                511                
-| **LUTs Used**                 |    156                    | 184                               |
-| **FFs Used**                  |        101               |     135                            |
-| **DSPs Used**                 |      0                  |         0                        |
-| **BRAMs Used**                |       0                 |          0                       |
+| Metric                     | **Without Pipelining** | **With `#pragma HLS PIPELINE II=2`** |
+| -------------------------- | ---------------------- | ------------------------------------ |
+| **Total Latency (cycles)** | 1017                   | 511                                  |
+| **LUTs Used**              | 156                    | 184                                  |
+| **FFs Used**               | 101                    | 135                                  |
+| **DSPs Used**              | 0                      | 0                                    |
+| **BRAMs Used**             | 0                      | 0                                    |
 
 ## Why Memory Port Count Affects II
 Despite not being able to achieve II=1 due to lack of memory ports it is important to note that throughput is still much higher with a low II than with no pipeline at all, which goes to show how powerful this pragma really is.

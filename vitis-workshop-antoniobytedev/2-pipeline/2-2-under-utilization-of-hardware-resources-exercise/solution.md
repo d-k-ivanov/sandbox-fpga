@@ -14,12 +14,12 @@ The minimum achievable initiation interval (II) in this case is 2, due to the du
 
 Despite not being able to achieve II=1 due to lack of memory ports, we were able to increase throughput by a factor of 2. This is important, because even if it's impossible to achieve II=1 you should always consider if it's possible to pipeline when designing an FPGA.
 ## Finished table
-| Metric                        | **Without Pipelining** | **With `#pragma HLS PIPELINE II=2`** |
-| ----------------------------- | ---------------------- | ------------------------------- |
- **Total Latency (cycles)**    |             513|                        259        
-| **LUTs Used**                 |    142          |                          167    |
-| **FFs Used**                  |           93              |               124            |
-| **DSPs Used**                 |  0                |                0     |
-| **BRAMs Used**                |   0                   |   0                              |
+| Metric                     | **Without Pipelining** | **With `#pragma HLS PIPELINE II=2`** |
+| -------------------------- | ---------------------- | ------------------------------------ |
+| **Total Latency (cycles)** | 513                    | 259                                  |
+| **LUTs Used**              | 142                    | 167                                  |
+| **FFs Used**               | 93                     | 124                                  |
+| **DSPs Used**              | 0                      | 0                                    |
+| **BRAMs Used**             | 0                      | 0                                    |
 
 
