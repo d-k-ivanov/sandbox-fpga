@@ -1,6 +1,6 @@
 #define N 256
 
-void main(int a[N], int b[N], int c[N]) {
+void function(int a[N], int b[N], int c[N]) {
     for (int i = 0; i < N; i++) {
         #pragma HLS PIPELINE off
         c[i] = a[i] + b[i];
