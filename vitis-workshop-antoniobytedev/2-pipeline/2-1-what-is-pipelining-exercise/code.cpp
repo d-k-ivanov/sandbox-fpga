@@ -1,6 +1,6 @@
 #define N 1024
 
-void function(float in[N], float out[N]) {
+void my_func(float in[N], float out[N]) {
     for (int i = 0; i < N; i++) {
         #pragma HLS PIPELINE off
         out[i] = in[i] + 10.0f;
